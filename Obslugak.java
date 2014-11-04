@@ -286,12 +286,9 @@ System.out.println(dod[0].getImie() + lista[1].getLiczbaPracownikow());
 
 class bd 
 {
-	private Pracownik lili[] = new Pracownik[100];
-	
-	public Pracownik[] getLili(){
-		return lili;
-	}
-	
+	private String imiona[] = new String[100];
+	private int pensje[] = new int[100];
+	private boolean urlopy[] = new boolean[100];
 
 	public bd(Pracownik lista[]){
 		
@@ -334,12 +331,11 @@ class bd
 				System.out.println(rs.getInt(1));		// pobranie id
 				imie = rs.getString(2);
 				pensja = rs.getInt(3);			// pobranie pensji
-				urlop = rs.getBoolean(4);	
-
-				
-				
-					lili[i] = Pracownik.stworzPracownika(imie, pensja, urlop);
-				baza += imie;
+				urlop = rs.getBoolean(4);
+				imiona[i] = imie;
+				pensje[i] = pensja;
+				urlopy[i] = urlop;
+				i++;
 			}
 
 			conn.close();

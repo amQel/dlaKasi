@@ -1,3 +1,5 @@
+package kasia;
+
 //Katarzyna SIcibek
 //gr. 4
 
@@ -243,13 +245,11 @@ public class Obslugak {
         lista[2]= Pracownik.stworzPracownika("Marek Malinowski", 1500, false);
         lista[3]= Pracownik.stworzPracownika("Artur Nowak", 1700, false);
 
- 	Pracownik[] dod;
         bd db = new bd(lista);
-        dod = db.getLili();
-System.out.println(dod[0].getImie() + lista[1].getLiczbaPracownikow());
-        for (int i = 0; i < dod.length; i++) {
-			if(dod[i]!=null)
-			lista[Pracownik.getLiczbaPracownikow() + 1] = Pracownik.stworzPracownika(dod[i].getImie(), dod[i].getPensja(), dod[i].isUrlop());
+        
+        for (int i = 0; i < db.getImiona().length; i++) {
+			if(db.getImiona()[i]!=null)
+			lista[Pracownik.getLiczbaPracownikow() + 1] = Pracownik.stworzPracownika(db.getImiona()[i], db.getPensje()[i], db.getUrlopy()[i]);
 		}
 //		do{
     		
@@ -290,6 +290,20 @@ class bd
 	private int pensje[] = new int[100];
 	private boolean urlopy[] = new boolean[100];
 
+	public String[] getImiona() {
+		return imiona;
+	}
+
+	public int[] getPensje() {
+		return pensje;
+	}
+
+	public boolean[] getUrlopy() {
+		return urlopy;
+	}
+
+	protected static final String SUPERTAJNEHASLO = "haslo";
+	
 	public bd(Pracownik lista[]){
 		
 		try {
@@ -353,178 +367,5 @@ class bd
 		}
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	protected static final String SUPERTAJNEHASLO = "900523";
 }
 
